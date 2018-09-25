@@ -1,0 +1,33 @@
+@AndroidFindBy(id = "username")
+	WebElement usernameBox;
+
+	@AndroidFindBy(id = "password")
+	WebElement passwordBox;
+
+	@AndroidFindBy(id = "loginButton")
+	WebElement loginButton;
+	
+	
+	
+	public void skipIntro() {
+		waitAndClick(on.loginButton);
+	}
+
+	public void typeUsername(String name) {
+		on.usernameBox.clear();
+		on.usernameBox.sendKeys(name);
+	}
+
+	public void typePassword(String password) {
+		on.passwordBox.sendKeys(password);
+	}
+
+	public void clickLogin() {
+		waitAndClick(on.loginButton);
+	}
+
+	public void loginWith(String username, String password) {
+		typeUsername(username);
+		typePassword(password);
+		clickLogin();
+	}
